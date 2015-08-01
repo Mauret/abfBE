@@ -8,6 +8,8 @@ import javax.validation.constraints.NotNull;
 
 /**
  * Created by mauret on 29/07/15.
+ *
+ * Maps a company that offers food and wine for the event.
  */
 @Entity
 public class Company implements EntityObject {
@@ -20,7 +22,7 @@ public class Company implements EntityObject {
     private String email;
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue
     public Long getId() {
         return id;
     }
