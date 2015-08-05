@@ -1,8 +1,7 @@
-package abfbe.entities;
+package abfbe.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
@@ -12,7 +11,7 @@ import javax.validation.constraints.NotNull;
  * Maps a company that offers food and wine for the event.
  */
 @Entity
-public class Company implements EntityObject {
+public class Company implements DomainObject {
     private Long id;
     private String name;
     private String address;

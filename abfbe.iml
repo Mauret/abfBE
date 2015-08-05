@@ -16,6 +16,7 @@
       <configuration>
         <fileset id="fileset2" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/java/abfbe/config/AbfbeApplication.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/abfbe/config/Persistence.java</file>
         </fileset>
       </configuration>
     </facet>
@@ -25,7 +26,6 @@
           <unit-entry name="hibernate.cfg.xml" />
         </datasource-map>
         <naming-strategy-map />
-        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate.cfg.xml" />
       </configuration>
     </facet>
   </component>
