@@ -17,6 +17,7 @@
         <fileset id="fileset2" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/java/abfbe/config/AbfbeApplication.java</file>
           <file>file://$MODULE_DIR$/src/main/java/abfbe/config/Persistence.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/abfbe/config/PersistenceProd.java</file>
         </fileset>
       </configuration>
     </facet>
