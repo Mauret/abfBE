@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
  * Class for accessing to the company table in the database.
  */
 @Repository
-public interface CompanyDao extends CrudRepository<Company, Long> {
+public interface CompanyDao extends GenericDao<Company> {
 }

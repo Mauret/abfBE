@@ -1,10 +1,15 @@
 package abfbe.domain;
 
+import abfbe.utils.Props;
+import org.hibernate.validator.constraints.Email;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 /**
  * Created by mauret on 29/07/15.
@@ -16,7 +21,7 @@ public class Company implements DomainObject {
     private Long id;
     private String name;
     private String address;
-    private Integer zipcode;
+    private String zipcode;
     private String city;
     private String phone;
     private String email;
@@ -32,6 +37,7 @@ public class Company implements DomainObject {
     }
 
     @NotNull
+    @Size(min = Props.MIN_LENGTH, max = Props.COMPANY_NAME_LENGTH)
     public String getName() {
         return name;
     }
@@ -41,6 +47,7 @@ public class Company implements DomainObject {
     }
 
     @NotNull
+    @Size(min = Props.MIN_LENGTH, max = Props.COMPANY_ADDRESS_LENGTH)
     public String getAddress() {
         return address;
     }
@@ -50,15 +57,17 @@ public class Company implements DomainObject {
     }
 
     @NotNull
-    public Integer getZipcode() {
+    @Pattern(regexp = Props.COMPANY_ZIPCODE_PATTERN)
+    public String getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(Integer zipcode) {
+    public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
 
     @NotNull
+    @Size(min = Props.MIN_LENGTH, max = Props.COMPANY_CITY_LENGTH)
     public String getCity() {
         return city;
     }
@@ -67,6 +76,7 @@ public class Company implements DomainObject {
         this.city = city;
     }
 
+    @Size(min = Props.MIN_LENGTH, max = Props.COMPANY_PHONE_LENGTH)
     public String getPhone() {
         return phone;
     }
@@ -75,6 +85,7 @@ public class Company implements DomainObject {
         this.phone = phone;
     }
 
+    @Email
     public String getEmail() {
         return email;
     }
