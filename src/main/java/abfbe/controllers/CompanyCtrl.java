@@ -1,7 +1,6 @@
 package abfbe.controllers;
 
 import abfbe.domain.Company;
-import abfbe.dtos.CompanyDto;
 import abfbe.services.CompanySrv;
 import abfbe.utils.Props;
 import abfbe.utils.UrlMap;
@@ -15,20 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * <p>
  * Controller for {@link Company} data.
  */
-@RestController
+//@RestController
 public class CompanyCtrl {
-    private CompanySrv companySrv;
 
-    @Autowired
-    public CompanyCtrl(final CompanySrv companySrv) {
-        this.companySrv = companySrv;
-    }
-
-    @RequestMapping(value = UrlMap.COMPANY_LIST, method = RequestMethod.GET, produces = Props
-            .APPLICATION_JSON_UTF8)
-    @ResponseStatus(HttpStatus.OK)
-    public Page<CompanyDto> getCompanies(@RequestParam(value = "p", required = false, defaultValue = "1")
-                                             final int page) {
-        return companySrv.getCompanies(page);
-    }
 }

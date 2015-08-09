@@ -17,8 +17,8 @@ import javax.validation.constraints.Size;
  * Maps a company that offers food and wine for the event.
  */
 @Entity
-public class Company implements DomainObject {
-    private Long id;
+public class Company extends DomainObject {
+    private Long idCompany;
     private String name;
     private String address;
     private String zipcode;
@@ -28,12 +28,12 @@ public class Company implements DomainObject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long getId() {
-        return id;
+    public Long getIdCompany() {
+        return idCompany;
     }
 
-    public void setId(final Long id) {
-        this.id = id;
+    public void setIdCompany(final Long idCompany) {
+        this.idCompany = idCompany;
     }
 
     @NotNull
@@ -102,7 +102,7 @@ public class Company implements DomainObject {
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Company) {
-            return this.id.equals(((Company)obj).getId());
+            return this.idCompany.equals(((Company)obj).getIdCompany());
         }
         return false;
     }
