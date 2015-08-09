@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Service
 public class CompanySrv {
-    private CompanyDao companyDao;
+    private final CompanyDao companyDao;
 
     @Autowired
     public CompanySrv(final CompanyDao companyDao) {
@@ -28,7 +28,9 @@ public class CompanySrv {
     }
 
     public Page<CompanyDto> getCompanies(final int page) {
-        Page<Company> companies = companyDao.findAll(new PageRequest(page, Props.MAX_ITEMS_PER_PAGE, new Sort
+//        NOTE: pages start from 0
+        Page<Company> companies = companyDao.findAll(new PageRequest(page - 1, Props.MAX_ITEMS_PER_PAGE, new
+                Sort
                 ("name")));
         final List<CompanyDto> companyDtos = new ArrayList<>();
         for (final Company company : companies) {

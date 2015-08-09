@@ -6,5 +6,5 @@ package abfbe.utils;
  * Mapping all app urls
  */
 public class UrlMap {
-    public static final String COMPANY_LIST = "/companies";
+    public static final String COMPANY_LIST = "/aziende";
 }
