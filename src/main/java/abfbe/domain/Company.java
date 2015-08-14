@@ -25,6 +25,7 @@ public class Company extends DomainObject {
     private String city;
     private String phone;
     private String email;
+    private String description;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -92,6 +93,15 @@ public class Company extends DomainObject {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Size(max = Props.COMPANY_DESCRIPTION_LENGTH)
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(final String description) {
+        this.description = description;
     }
 
     @Override

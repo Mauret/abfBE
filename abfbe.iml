@@ -17,7 +17,6 @@
         <fileset id="fileset2" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/java/abfbe/config/AbfbeApplication.java</file>
           <file>file://$MODULE_DIR$/src/main/java/abfbe/config/Persistence.java</file>
-          <file>file://$MODULE_DIR$/src/main/java/abfbe/config/PersistenceProd.java</file>
         </fileset>
       </configuration>
     </facet>
@@ -39,7 +38,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-jpa:1.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:1.2.5.RELEASE" level="project" />

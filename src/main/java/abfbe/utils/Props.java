@@ -28,4 +28,5 @@ public class Props {
     public static final String COMPANY_ZIPCODE_PATTERN = "^[0-9]{5}(?:-[0-9]{4})?$";
     public static final int COMPANY_CITY_LENGTH = 50;
     public static final int COMPANY_PHONE_LENGTH = 15;
+    public static final int COMPANY_DESCRIPTION_LENGTH = 100000;
 }
