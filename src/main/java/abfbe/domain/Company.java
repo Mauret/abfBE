@@ -1,35 +1,44 @@
-package abfbe.entities;
+package abfbe.domain;
+
+import abfbe.utils.Props;
+import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 /**
  * Created by mauret on 29/07/15.
+ *
+ * Maps a company that offers food and wine for the event.
  */
 @Entity
-public class Company implements EntityObject {
-    private Long id;
+public class Company extends DomainObject {
+    private Long idCompany;
     private String name;
     private String address;
-    private Integer zipcode;
+    private String zipcode;
     private String city;
     private String phone;
     private String email;
+    private String description;
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    public Long getId() {
-        return id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Long getIdCompany() {
+        return idCompany;
     }
 
-    public void setId(final Long id) {
-        this.id = id;
+    public void setIdCompany(final Long idCompany) {
+        this.idCompany = idCompany;
     }
 
     @NotNull
+    @Size(min = Props.MIN_LENGTH, max = Props.COMPANY_NAME_LENGTH)
     public String getName() {
         return name;
     }
@@ -39,6 +48,7 @@ public class Company implements EntityObject {
     }
 
     @NotNull
+    @Size(min = Props.MIN_LENGTH, max = Props.COMPANY_ADDRESS_LENGTH)
     public String getAddress() {
         return address;
     }
@@ -48,15 +58,17 @@ public class Company implements EntityObject {
     }
 
     @NotNull
-    public Integer getZipcode() {
+    @Pattern(regexp = Props.COMPANY_ZIPCODE_PATTERN)
+    public String getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(Integer zipcode) {
+    public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
 
     @NotNull
+    @Size(min = Props.MIN_LENGTH, max = Props.COMPANY_CITY_LENGTH)
     public String getCity() {
         return city;
     }
@@ -65,6 +77,7 @@ public class Company implements EntityObject {
         this.city = city;
     }
 
+    @Size(min = Props.MIN_LENGTH, max = Props.COMPANY_PHONE_LENGTH)
     public String getPhone() {
         return phone;
     }
@@ -73,12 +86,22 @@ public class Company implements EntityObject {
         this.phone = phone;
     }
 
+    @Email
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Size(max = Props.COMPANY_DESCRIPTION_LENGTH)
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(final String description) {
+        this.description = description;
     }
 
     @Override
@@ -89,7 +112,7 @@ public class Company implements EntityObject {
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Company) {
-            return this.id.equals(((Company)obj).getId());
+            return this.idCompany.equals(((Company)obj).getIdCompany());
         }
         return false;
     }
