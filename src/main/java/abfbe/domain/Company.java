@@ -12,12 +12,14 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
- * Created by mauret on 29/07/15.
+ * Date: 20/08/15
+ * @author mauret
  *
  * Maps a company that offers food and wine for the event.
  */
 @Entity
 public class Company extends DomainObject {
+    private static final long serialVersionUID = 5222369341791038943L;
     private Long idCompany;
     private String name;
     private String address;
