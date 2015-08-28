@@ -7,7 +7,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
- * Created by mauret on 05/08/15.
+ * Date: 05/08/15
+ *
+ * @author  mauret
  */
 @Configuration
 @EnableJpaRepositories(basePackages = "abfbe.dao")

@@ -1,12 +1,12 @@
 package abfbe.domain;
 
 import abfbe.utils.Props;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.Email;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -28,6 +28,7 @@ public class Company extends DomainObject {
     private String phone;
     private String email;
     private String description;
+    private Menu menu;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -104,6 +105,17 @@ public class Company extends DomainObject {
 
     public void setDescription(final String description) {
         this.description = description;
+    }
+
+    @Valid
+    @OneToOne(targetEntity = Menu.class, cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
     }
 
     @Override

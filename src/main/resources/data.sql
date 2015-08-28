@@ -30,27 +30,31 @@ INSERT INTO af.menu_entry (id_menu_entry, name)
 VALUES (3, 'menuentry3');
 
 -- menus
-INSERT INTO af.menu (id_menu, name)
-VALUES (1, 'menu1');
+INSERT INTO af.menu (id_menu, name, company)
+VALUES (1, 'menu1', 1);
 
-INSERT INTO af.menu (id_menu, name)
-VALUES (2, 'menu2');
+INSERT INTO af.menu (id_menu, name, company)
+VALUES (2, 'menu2', 2);
 
--- menu_companies
-INSERT INTO af.menu_companies (menu, companies)
-VALUES (1, 1);
+INSERT INTO af.menu (id_menu, name, company)
+VALUES (3, 'menu3', 3);
 
-INSERT INTO af.menu_companies (menu, companies)
-VALUES (1, 2);
+INSERT INTO af.menu (id_menu, name, company)
+VALUES (4, 'menu4', 4);
 
-INSERT INTO af.menu_companies (menu, companies)
-VALUES (1, 3);
+INSERT INTO af.menu (id_menu, name, company)
+VALUES (5, 'menu5', 5);
 
-INSERT INTO af.menu_companies (menu, companies)
-VALUES (2, 4);
+-- menus in companies
+UPDATE af.company SET menu = 1 WHERE id_company = 1;
 
-INSERT INTO af.menu_companies (menu, companies)
-VALUES (2, 5);
+UPDATE af.company SET menu = 2 WHERE id_company = 2;
+
+UPDATE af.company SET menu = 3 WHERE id_company = 3;
+
+UPDATE af.company SET menu = 4 WHERE id_company = 4;
+
+UPDATE af.company SET menu = 5 WHERE id_company = 5;
 
 -- menu_menu_entries
 INSERT INTO af.menu_menu_entries (menu, menu_entries)
@@ -68,6 +72,24 @@ VALUES (2, 1);
 INSERT INTO af.menu_menu_entries (menu, menu_entries)
 VALUES (2, 2);
 
+INSERT INTO af.menu_menu_entries (menu, menu_entries)
+VALUES (3, 1);
+
+INSERT INTO af.menu_menu_entries (menu, menu_entries)
+VALUES (3, 2);
+
+INSERT INTO af.menu_menu_entries (menu, menu_entries)
+VALUES (4, 1);
+
+INSERT INTO af.menu_menu_entries (menu, menu_entries)
+VALUES (4, 2);
+
+INSERT INTO af.menu_menu_entries (menu, menu_entries)
+VALUES (5, 1);
+
+INSERT INTO af.menu_menu_entries (menu, menu_entries)
+VALUES (5, 2);
+
 -- menu_entry_menus
 INSERT INTO af.menu_entry_menus (menu_entry, menus)
 VALUES (1, 1);
@@ -76,10 +98,28 @@ INSERT INTO af.menu_entry_menus (menu_entry, menus)
 VALUES (1, 2);
 
 INSERT INTO af.menu_entry_menus (menu_entry, menus)
+VALUES (1, 3);
+
+INSERT INTO af.menu_entry_menus (menu_entry, menus)
+VALUES (1, 4);
+
+INSERT INTO af.menu_entry_menus (menu_entry, menus)
+VALUES (1, 5);
+
+INSERT INTO af.menu_entry_menus (menu_entry, menus)
 VALUES (2, 1);
 
 INSERT INTO af.menu_entry_menus (menu_entry, menus)
 VALUES (2, 2);
+
+INSERT INTO af.menu_entry_menus (menu_entry, menus)
+VALUES (2, 3);
+
+INSERT INTO af.menu_entry_menus (menu_entry, menus)
+VALUES (2, 4);
+
+INSERT INTO af.menu_entry_menus (menu_entry, menus)
+VALUES (2, 5);
 
 INSERT INTO af.menu_entry_menus (menu_entry, menus)
 VALUES (3, 1);

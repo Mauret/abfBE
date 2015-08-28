@@ -1,6 +1,8 @@
 package abfbe.domain;
 
 import abfbe.utils.Props;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -40,7 +42,8 @@ public class MenuEntry extends DomainObject {
         this.name = name;
     }
 
-    @ManyToMany(targetEntity = Menu.class, fetch = FetchType.LAZY)
+    @ManyToMany(targetEntity = Menu.class)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
     public List<Menu> getMenus() {
         return menus;
     }

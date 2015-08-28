@@ -21,7 +21,7 @@ public class Menu extends DomainObject {
     private Long idMenu;
     private String name;
     private List<MenuEntry> menuEntries;
-    private List<Company> companies;
+    private Company company;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,7 +44,8 @@ public class Menu extends DomainObject {
     }
 
     @NotNull
-    @ManyToMany(targetEntity = MenuEntry.class, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = MenuEntry.class)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
     public List<MenuEntry> getMenuEntries() {
         return menuEntries;
     }
@@ -53,14 +54,13 @@ public class Menu extends DomainObject {
         this.menuEntries = menuEntries;
     }
 
-    @NotNull
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToOne(targetEntity = Company.class, cascade = CascadeType.ALL)
     @OnDelete(action = OnDeleteAction.NO_ACTION)
-    public List<Company> getCompanies() {
-        return companies;
+    public Company getCompany() {
+        return company;
     }
 
-    public void setCompanies(List<Company> companies) {
-        this.companies = companies;
+    public void setCompany(Company company) {
+        this.company = company;
     }
 }
