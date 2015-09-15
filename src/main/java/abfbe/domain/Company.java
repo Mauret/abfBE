@@ -1,23 +1,25 @@
 package abfbe.domain;
 
 import abfbe.utils.Props;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.Email;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
- * Created by mauret on 29/07/15.
+ * Date: 20/08/15
+ * @author mauret
  *
  * Maps a company that offers food and wine for the event.
  */
 @Entity
 public class Company extends DomainObject {
+    private static final long serialVersionUID = 5222369341791038943L;
     private Long idCompany;
     private String name;
     private String address;
@@ -26,6 +28,8 @@ public class Company extends DomainObject {
     private String phone;
     private String email;
     private String description;
+    private Menu menu;
+    private CheckPoint checkPoint;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,7 +47,7 @@ public class Company extends DomainObject {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -53,7 +57,7 @@ public class Company extends DomainObject {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(final String address) {
         this.address = address;
     }
 
@@ -63,7 +67,7 @@ public class Company extends DomainObject {
         return zipcode;
     }
 
-    public void setZipcode(String zipcode) {
+    public void setZipcode(final String zipcode) {
         this.zipcode = zipcode;
     }
 
@@ -73,7 +77,7 @@ public class Company extends DomainObject {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(final String city) {
         this.city = city;
     }
 
@@ -82,7 +86,7 @@ public class Company extends DomainObject {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(final String phone) {
         this.phone = phone;
     }
 
@@ -91,7 +95,7 @@ public class Company extends DomainObject {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 
@@ -104,16 +108,34 @@ public class Company extends DomainObject {
         this.description = description;
     }
 
+    @Valid
+    @OneToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(final Menu menu) {
+        this.menu = menu;
+    }
+
+    @OneToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    public CheckPoint getCheckPoint() {
+        return checkPoint;
+    }
+
+    public void setCheckPoint(final CheckPoint checkPoint) {
+        this.checkPoint = checkPoint;
+    }
+
     @Override
     public int hashCode() {
         return super.hashCode();
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Company) {
-            return this.idCompany.equals(((Company)obj).getIdCompany());
-        }
-        return false;
+    public boolean equals(final Object obj) {
+        return obj instanceof Company && this.idCompany.equals(((Company) obj).getIdCompany());
     }
 }
