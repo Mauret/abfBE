@@ -141,19 +141,19 @@ VALUES (3, 1);
 
 -- check_point
 INSERT INTO af.check_point (id_check_point, name, longitude, latitude, company)
-VALUES (1, 'checkpoint1', '46.1483958', '13.345333', 1);
+VALUES (1, 'checkpoint1', '13.345333', '46.1483958', 1);
 
 INSERT INTO af.check_point (id_check_point, name, longitude, latitude, company)
-VALUES (2, 'checkpoint2', '46.149659', '13.344453', 2);
+VALUES (2, 'checkpoint2', '13.344453', '46.149659', 2);
 
 INSERT INTO af.check_point (id_check_point, name, longitude, latitude, company)
-VALUES (3, 'checkpoint3', '46.148738', '13.347500', 3);
+VALUES (3, 'checkpoint3', '13.347500', '46.148738', 3);
 
 INSERT INTO af.check_point (id_check_point, name, longitude, latitude, company)
-VALUES (4, 'checkpoint4', '46.139966', '13.336085', 4);
+VALUES (4, 'checkpoint4', '13.336085', '46.139966', 4);
 
 INSERT INTO af.check_point (id_check_point, name, longitude, latitude, company)
-VALUES (5, 'checkpoint5', '46.137171', '13.335999', 5);
+VALUES (5, 'checkpoint5', '13.335999', '46.137171', 5);
 
 -- check_point in company
 UPDATE af.company
