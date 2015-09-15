@@ -29,7 +29,7 @@ public class Menu extends DomainObject {
         return idMenu;
     }
 
-    public void setIdMenu(Long idMenu) {
+    public void setIdMenu(final Long idMenu) {
         this.idMenu = idMenu;
     }
 
@@ -39,28 +39,38 @@ public class Menu extends DomainObject {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
     @NotNull
-    @ManyToMany(targetEntity = MenuEntry.class)
+    @ManyToMany
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     public List<MenuEntry> getMenuEntries() {
         return menuEntries;
     }
 
-    public void setMenuEntries(List<MenuEntry> menuEntries) {
+    public void setMenuEntries(final List<MenuEntry> menuEntries) {
         this.menuEntries = menuEntries;
     }
 
-    @OneToOne(targetEntity = Company.class, cascade = CascadeType.ALL)
+    @OneToOne
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     public Company getCompany() {
         return company;
     }
 
-    public void setCompany(Company company) {
+    public void setCompany(final Company company) {
         this.company = company;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+        return obj instanceof Menu && this.idMenu.equals(((Menu) obj).getIdMenu());
     }
 }

@@ -29,6 +29,7 @@ public class Company extends DomainObject {
     private String email;
     private String description;
     private Menu menu;
+    private CheckPoint checkPoint;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,7 +47,7 @@ public class Company extends DomainObject {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -56,7 +57,7 @@ public class Company extends DomainObject {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(final String address) {
         this.address = address;
     }
 
@@ -66,7 +67,7 @@ public class Company extends DomainObject {
         return zipcode;
     }
 
-    public void setZipcode(String zipcode) {
+    public void setZipcode(final String zipcode) {
         this.zipcode = zipcode;
     }
 
@@ -76,7 +77,7 @@ public class Company extends DomainObject {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(final String city) {
         this.city = city;
     }
 
@@ -85,7 +86,7 @@ public class Company extends DomainObject {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(final String phone) {
         this.phone = phone;
     }
 
@@ -94,7 +95,7 @@ public class Company extends DomainObject {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 
@@ -108,14 +109,24 @@ public class Company extends DomainObject {
     }
 
     @Valid
-    @OneToOne(targetEntity = Menu.class, cascade = CascadeType.ALL)
+    @OneToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     public Menu getMenu() {
         return menu;
     }
 
-    public void setMenu(Menu menu) {
+    public void setMenu(final Menu menu) {
         this.menu = menu;
+    }
+
+    @OneToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    public CheckPoint getCheckPoint() {
+        return checkPoint;
+    }
+
+    public void setCheckPoint(final CheckPoint checkPoint) {
+        this.checkPoint = checkPoint;
     }
 
     @Override
@@ -124,10 +135,7 @@ public class Company extends DomainObject {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Company) {
-            return this.idCompany.equals(((Company)obj).getIdCompany());
-        }
-        return false;
+    public boolean equals(final Object obj) {
+        return obj instanceof Company && this.idCompany.equals(((Company) obj).getIdCompany());
     }
 }

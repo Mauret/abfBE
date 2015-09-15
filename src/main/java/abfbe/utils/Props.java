@@ -38,4 +38,9 @@ public class Props {
      * Menu constrains
      */
     public static final int MENU_NAME_LENGTH = 100;
+
+    /*
+     * CheckPoint constrains
+     */
+    public static final int CHECKPOINT_NAME_LENGTH = 50;
 }
